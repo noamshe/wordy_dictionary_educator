@@ -1,0 +1,33 @@
+.icons_style {
+  height:78px; 
+  cursor:pointer; 
+  float:right;
+}
+
+.select_style {
+  font-size: 50px;
+  height: 78px;
+}
+
+.main_icon {
+  height:78px; 
+  cursor:pointer; 
+}
+
+.circle {
+    border: 0.1em solid orange;
+    border-radius: 100%;
+    height: 78px;
+    width: 78px;
+    text-align: center;
+}
+
+.circle p {
+    font-weight: bold;
+    font-family: sans-serif;
+    color: orange;
+}
+
+.progress {
+  height: 15px;
+}
