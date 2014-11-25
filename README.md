@@ -1,5 +1,5 @@
 
-
+TODOS
 - show each of the theme in a row same as the words, with hat or pending to be done icon and date
 - theme that wasn't visited long show time icon, same for a word that wasn't clicked for long time, icon for 24h, for more than 3 days and more then a week, more than a month, year...
 - for theme that is all done, show in green, BUT add icon for "need to refresh" after certein amount of time.
