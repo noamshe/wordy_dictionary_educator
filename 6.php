@@ -13,7 +13,10 @@
     $arr1['word'] = $row['word'];
     $arr1['definition'] = $row['def1'];
     $arr1['checked'] = $row['checked'];
-    //$arr[$row['id']] = $row['word'];
+    $arr1['green_flag'] = $row['green_flag'];
+    $arr1['good'] = $row['good'];
+    $arr1['bad'] = $row['bad'];
+
     $arr[$row['id']] = $arr1;
   }
 

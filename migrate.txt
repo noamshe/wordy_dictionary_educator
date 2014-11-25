@@ -1,1 +1,20 @@
  create table themes (id int auto_increment not null, name varchar(32), created_at datetime, primary key (id));
+ CREATE TABLE `archive` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `word` varchar(64) DEFAULT NULL,
+  `def1` varchar(1024) DEFAULT NULL,
+  `def2` varchar(512) DEFAULT NULL,
+  `def3` varchar(512) DEFAULT NULL,
+  `count` int(11) DEFAULT '1',
+  `checked` tinyint(1) DEFAULT '0',
+  `theme_id` int(11) DEFAULT '0',
+  `updated_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `word` (`word`,`theme_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=421 DEFAULT CHARSET=utf8
+
+alter table archive add column green_flag tinyint(1) default 1 after checked;
+alter table archive add column good int(11) default 0 after checked;
+alter table archive add column bad int(11) default 0 after checked;
+

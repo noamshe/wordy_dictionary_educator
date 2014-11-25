@@ -22,6 +22,39 @@ $(function () {
     });
   }
 
+  setGood = function (id, value) {
+    $.ajax({
+      type: "POST",
+      url: DB_SERVER + SET_GOOD,
+      data: "id=" + id + "&good=" + value,
+      dataType: "text",
+      success: function (result) {
+      }
+    });
+  }
+
+  setBad = function (id, value) {
+    $.ajax({
+      type: "POST",
+      url: DB_SERVER + SET_BAD,
+      data: "id=" + id + "&bad=" + value,
+      dataType: "text",
+      success: function (result) {
+      }
+    });
+  }
+
+  setGreenFlag = function (id) {
+    $.ajax({
+      type: "POST",
+      url: DB_SERVER + SET_GREEN_FLAG,
+      data: "id=" + id,
+      dataType: "text",
+      success: function (result) {
+      }
+    });
+  }
+
   deleteWord = function(id) {
     $.ajax({
       type: "POST",
@@ -142,15 +175,26 @@ $(function () {
     for (var key in result) {
       if (result.hasOwnProperty(key)) {
         resultObject = result[key];
-	var bar = '<div class="progress"><div id="progress_' + key + '" data-good="' + 0 + '" data-bad="' + 0 + '" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%"><span class="sr-only">80% Complete (danger)</span></div></div>';
-        var minusElem = "<img id='minus_" + key + "' data-minus='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_MINUS_ICON + "' class='icons_style' type='image' style='float:left'/>";
-        var plusElem = "<img id='plus_" + key + "' data-plus='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_PLUS_ICON + "' class='icons_style' type='image' style='float:left'/>";
+	var bar = '<div class="progress"><div id="progress_' + key + '" data-good="' + resultObject.good + '" data-bad="' + resultObject.bad + '" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%"><span class="sr-only">80% Complete (danger)</span></div></div>';
+        var minusElem = "<img id='minus_" + key + "' data-minus='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_MINUS_ICON + "' class='icons_style' type='image' style='float:left; display:" + (resultObject.green_flag == 1 ? "none" : "block") + "'/>";
+        var plusElem = "<img id='plus_" + key + "' data-plus='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_PLUS_ICON + "' class='icons_style' type='image' style='float:left; display:" + (resultObject.green_flag == 1 ? "none" : "block") + "'/>";
 	var circleElem = '<div class="icons_style circle"><p>77</p></div>';
         var checkElem = "<img id='check_" + key + "' data-checked='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_CHECKED_ICON + "' class='icons_style' type='image'/>";
         var greenFlag = "<img id='flag_green_" + key + "' data-checked='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_GREEN_FLAG_ICON + "' class='icons_style' style='float:none' type='image'/>";
 	
         var checkGrayElem = "<img id='check_gray_" + key + "' data-checked='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_NOT_CHECKED_ICON + "' class='icons_style' type='image'/>";
-        theme_list.append("<li id='li_" + key + "' style='cursor:zoom-in' class='list-group-item'>" + resultObject.word + greenFlag + "<img id='" + key + "' data-id='" + key + "' src='" + OPTIONS_THEME_DELETE_ICON + "' class='icons_style' type='image'/>" + checkElem + checkGrayElem + plusElem + minusElem + "</li>");
+
+
+	var toAppend = "<li id='li_" + key + "' style='cursor:zoom-in' class='list-group-item'>" + resultObject.word;
+	if (resultObject.green_flag == 1) {
+	  toAppend += greenFlag 
+	}
+	toAppend += "<img id='" + key + "' data-id='" + key + "' src='" + OPTIONS_THEME_DELETE_ICON + "' class='icons_style' type='image'/>" + checkElem + checkGrayElem;
+	toAppend += plusElem + minusElem 
+	toAppend += "</li>";
+
+
+        theme_list.append(toAppend);
 	//var textAlign = is
 	//alert(resultObject.definition + " "  +isHebrew(resultObject.definition));
 	//var textAlign = isHebrew(resultObject.definition) ? "right" : "left";
@@ -198,6 +242,7 @@ $(function () {
 	  var good = parseInt($("#progress_" + id).data("good")) + 1;
 	  $("#progress_" + id).data("good", good);
 	  updateProgressBar(id);
+	  setGood(id, good);
         });
         $('#minus_' + key).bind('click', function (event) {
 	  //$("#" + event.target.id).fadeOut("slow", function() {
@@ -208,6 +253,26 @@ $(function () {
 	  var bad = parseInt($("#progress_" + id).data("bad")) + 1;
 	  $("#progress_" + id).data("bad", bad);
 	  updateProgressBar(id);
+	  setBad(id, bad);
+        });
+        $('#flag_green_' + key).bind('click', function (event) {
+	  var id = $("#" + event.target.id).data("id");
+	  $("#" + event.target.id).toggle("explode", function() {
+	    console.log("***");
+	    console.log(key);
+	    console.log(event.target.id);
+	    console.log(id);
+	    console.log("***");
+	    $('#minus_' + id).show();
+	    $('#plus_' + id).show();
+	  });
+	  var id = $("#" + event.target.id).data("id");
+	  setGreenFlag(id);
+	  var id = $("#" + event.target.id).data("id");
+	  var good = parseInt($("#progress_" + id).data("good")) + 1;
+	  $("#progress_" + id).data("good", good);
+	  updateProgressBar(id);
+	  setGood(id, good);
         });
       }
     }

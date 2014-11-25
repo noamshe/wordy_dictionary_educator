@@ -16,6 +16,9 @@ var SHOW_ALL_WORD_HTML = "5.php";
 var GET_THEME_WORDS = "6.php";
 var DELETE_WORD = "7.php";
 var SET_CHECKED = "8.php";
+var SET_GOOD = "9.php";
+var SET_BAD = "10.php";
+var SET_GREEN_FLAG = "11.php";
 
 // Strings
 var ADDED_TO_DB_TEXT = ".המילה התווספה למאגר";
