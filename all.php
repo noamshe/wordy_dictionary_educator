@@ -33,7 +33,7 @@
           <select id="theme_select_multiple" class="select_style col-xs-12"></select>
           <span id="add_theme_result"></span>
 	  <div class="col-xs-4"></div>
-          <img id="ajax_loader" style="display:none" class="col-xs-4 text-center" src="img/ajax_loader.gif" type="image"/>
+          <img id="ajax_loader" style="display:none" class="col-xs-4 text-center" src="img/ajax_loader_2.gif" type="image"/>
 	  <div class="col-xs-4"></div>
 	  <ul id="theme_list" class="list-group col-xs-12">
 	    <!--<li class="list-group-item">noam<input src="img/pinIn.png" style="float:right" type="image"/></li>-->
