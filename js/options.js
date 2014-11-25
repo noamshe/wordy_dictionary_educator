@@ -80,8 +80,10 @@ $(function () {
         var themes_select = $("#theme_select_multiple");
         for (var key in result) {
           if (result.hasOwnProperty(key)) {
-            console.log(key + " -> " + result[key]);
-            themes_select.append("<option value='" + key + "'>" + result[key] + "</option>");
+            resultObject = result[key];
+            console.log("resultObject");
+            console.log(resultObject);
+            themes_select.append("<option value='" + resultObject.id+ "'>" + resultObject.name + " (" + resultObject.count + ")</option>");
           }
         }
       },

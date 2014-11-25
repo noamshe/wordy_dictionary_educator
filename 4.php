@@ -9,8 +9,14 @@
 
   $arr = array();
   while($row = mysqli_fetch_array($result)) {
-    //array_push($arr, $row['name']);
-    $arr[$row['id']] = $row['name'];
+    $arr1 = array();
+    $result2 = mysqli_query($con, "SELECT COUNT(*) AS cc FROM archive WHERE theme_id = ".$row['id']);
+    $row2 = mysqli_fetch_array($result2);
+    $arr1['id'] = $row['id'];
+    $arr1['name'] = $row['name'];
+    $arr1['count'] = $row2['cc'];
+    $arr[$row['id']] = $arr1;
+    //$arr[$row['id']] = $row['name'];
   }
 
   $jsonArray = json_encode($arr);
