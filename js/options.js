@@ -59,8 +59,12 @@ $(function () {
     $("#progress_" + id).removeClass("progress-bar-warning");
     $("#progress_" + id).removeClass("progress-bar-danger");
 
-    $("#progress_" + id).addClass(clazz);
-    $('#progress_' + id).css('width', value + '%');
+    if (good + bad > 0) {
+      $("#progress_" + id).addClass(clazz);
+      $('#progress_' + id).css('width', value + '%');
+    } else {
+      $('#progress_' + id).css('width', '0%');
+    }
   }
   // loading themes
   loadThemes = function () {
@@ -136,7 +140,7 @@ $(function () {
     for (var key in result) {
       if (result.hasOwnProperty(key)) {
         resultObject = result[key];
-	var bar = '<div class="progress"><div id="progress_' + key + '" data-good="' + 1 + '" data-bad="' + 0 + '" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%"><span class="sr-only">80% Complete (danger)</span></div></div>';
+	var bar = '<div class="progress"><div id="progress_' + key + '" data-good="' + 0 + '" data-bad="' + 0 + '" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%"><span class="sr-only">80% Complete (danger)</span></div></div>';
         var minusElem = "<img id='minus_" + key + "' data-minus='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_MINUS_ICON + "' class='icons_style' type='image' style='float:left'/>";
         var plusElem = "<img id='plus_" + key + "' data-plus='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_PLUS_ICON + "' class='icons_style' type='image' style='float:left'/>";
 	var circleElem = '<div class="icons_style circle"><p>77</p></div>';
