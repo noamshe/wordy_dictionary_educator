@@ -32,6 +32,7 @@ var OPTIONS_THEME_CHECKED_ICON = "img/checked.png";
 var OPTIONS_THEME_NOT_CHECKED_ICON = "img/checked_gray.png";
 var OPTIONS_THEME_PLUS_ICON = "img/plus.png";
 var OPTIONS_THEME_MINUS_ICON = "img/minus.png";
+var OPTIONS_THEME_GREEN_FLAG_ICON = "img/learning-flag-green.png";
 
 // POPUP
 var LANGUAGE_SEPERATOR_COLOR = "#FF9966";

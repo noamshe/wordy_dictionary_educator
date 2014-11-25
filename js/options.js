@@ -145,9 +145,10 @@ $(function () {
         var plusElem = "<img id='plus_" + key + "' data-plus='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_PLUS_ICON + "' class='icons_style' type='image' style='float:left'/>";
 	var circleElem = '<div class="icons_style circle"><p>77</p></div>';
         var checkElem = "<img id='check_" + key + "' data-checked='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_CHECKED_ICON + "' class='icons_style' type='image'/>";
+        var greenFlag = "<img id='flag_green_" + key + "' data-checked='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_GREEN_FLAG_ICON + "' class='icons_style' style='float:none' type='image'/>";
 	
         var checkGrayElem = "<img id='check_gray_" + key + "' data-checked='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_NOT_CHECKED_ICON + "' class='icons_style' type='image'/>";
-        theme_list.append("<li id='li_" + key + "' style='cursor:zoom-in' class='list-group-item'>" + resultObject.word + "<img id='" + key + "' data-id='" + key + "' src='" + OPTIONS_THEME_DELETE_ICON + "' class='icons_style' type='image'/>" + checkElem + checkGrayElem + plusElem + minusElem + "</li>");
+        theme_list.append("<li id='li_" + key + "' style='cursor:zoom-in' class='list-group-item'>" + resultObject.word + greenFlag + "<img id='" + key + "' data-id='" + key + "' src='" + OPTIONS_THEME_DELETE_ICON + "' class='icons_style' type='image'/>" + checkElem + checkGrayElem + plusElem + minusElem + "</li>");
 	//var textAlign = is
 	//alert(resultObject.definition + " "  +isHebrew(resultObject.definition));
 	//var textAlign = isHebrew(resultObject.definition) ? "right" : "left";
@@ -187,7 +188,8 @@ $(function () {
 	  setChecked(id, true);
         });
         $('#plus_' + key).bind('click', function (event) {
-	  $("#" + event.target.id).fadeOut("slow", function() {
+	  //$("#" + event.target.id).fadeOut("slow", function() {
+	  $("#" + event.target.id).toggle("explode", function() {
 	    $("#" + event.target.id).show();
 	  });
 	  var id = $("#" + event.target.id).data("id");
@@ -196,7 +198,8 @@ $(function () {
 	  updateProgressBar(id);
         });
         $('#minus_' + key).bind('click', function (event) {
-	  $("#" + event.target.id).fadeOut("slow", function() {
+	  //$("#" + event.target.id).fadeOut("slow", function() {
+	  $("#" + event.target.id).toggle("explode", function() {
 	    $("#" + event.target.id).show();
 	  });
 	  var id = $("#" + event.target.id).data("id");
