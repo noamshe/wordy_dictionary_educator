@@ -10,6 +10,10 @@ $(function () {
     $("#switch").show();
     // tbd the logic
   });
+  $('#back').bind('click', function (event) {
+    $("#back").hide();
+    loadThemes_packages();
+  });
 
   setChecked = function (id, checked) {
     $.ajax({
@@ -117,6 +121,56 @@ $(function () {
             console.log("resultObject");
             console.log(resultObject);
             themes_select.append("<option value='" + resultObject.id+ "'>" + resultObject.name + " (" + resultObject.count + ")</option>");
+          }
+        }
+      },
+      error: function (result) {
+        console.log(result);
+      }
+    });
+  };
+
+  loadThemes_packages = function () {
+    $('#theme_packages_list').show();
+    $('#theme_packages_list').empty();
+    $("#theme_list").empty();
+    $.ajax({
+      type: "POST",
+      url: DB_SERVER + LOAD_THEMES_METHOD,
+      dataType: "text",
+      success: function (result) {
+        console.log(result);
+        var result = JSON.parse(result);
+        console.log(result[1]);
+        var packages_list = $("#theme_packages_list");
+        for (var key in result) {
+          if (result.hasOwnProperty(key)) {
+            resultObject = result[key];
+            console.log("resultObject");
+            console.log(resultObject);
+	    var toAppend = "<li id='li_" + key + "' data-id='" + resultObject.id + "' style='cursor:zoom-in' class='list-group-item'>" + resultObject.name + " (" + resultObject.count + ")";
+	    toAppend += "<img id='" + key + "' data-id='" + resultObject.id + "' src='" + ICON_GRADUATED + "' class='icons_style' type='image'/>";
+	    toAppend += "</li>";
+	    packages_list.append(toAppend);
+            $('#li_' + key).bind('click', function (event) {
+              $("#theme_packages_list").hide();
+	      $("#ajax_loader").show();
+	      console.log("event: " + event.target.id);
+	      var theme_id = $("#" + event.target.id).data("id");
+	      console.log("id: " + theme_id);
+	      $.ajax({
+	        type: "POST",
+	        url: DB_SERVER + GET_THEME_WORDS,
+	        data: "theme_id=" + theme_id,
+	        dataType: "text",
+	        success: function (result)   {
+		console.log(result);
+    		  $("#back").show();
+		  $("#ajax_loader").hide();
+		  refresh_list(result);
+	        }
+	      });
+	    });
           }
         }
       },
@@ -294,6 +348,7 @@ $(function () {
     });
   });
 
-  loadThemes();
+  //loadThemes();
+  loadThemes_packages();
 });
 

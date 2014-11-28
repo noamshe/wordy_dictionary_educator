@@ -22,15 +22,15 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xs-12">
-          <br/>
-          <br/>
-          <label>Wordy Dictionary ~ V3.0</label>
-          <br/>
-          <br/>
-          <img class="main_icon" src="img/theme_icon.png" type="image"/><label>Choose Theme</label>
+          <!--<label>Wordy Dictionary ~ V3.0</label>-->
+          <!--<img class="main_icon" src="img/theme_icon.png" type="image"/><label>Choose Theme</label>-->
           <img id="switch_gray" style="display:none" class="icons_style main_icon" src="img/switch.png" type="image"/>
+          <img id="back" style="height:200px; float:left; display:none" class="" src="img/back.png" type="image"/>
           <img id="switch" class="icons_style main_icon" src="img/switch_gray.png" type="image"/>
-          <select id="theme_select_multiple" class="select_style col-xs-12"></select>
+          <!--<select id="theme_select_multiple" class="select_style col-xs-12"></select>-->
+	  <ul id="theme_packages_list" class="list-group col-xs-12">
+	    <li class="list-group-item">package 1<input src="img/pinIn.png" style="float:right" type="image"/></li>
+	  </ul>
           <span id="add_theme_result"></span>
 	  <div class="col-xs-4"></div>
           <img id="ajax_loader" style="display:none" class="col-xs-4 text-center" src="img/ajax_loader_2.gif" type="image"/>
