@@ -16,6 +16,7 @@
     $arr1['green_flag'] = $row['green_flag'];
     $arr1['good'] = $row['good'];
     $arr1['bad'] = $row['bad'];
+    $arr1['last_refresh'] = $row['last_refresh'];
 
     $arr[$row['id']] = $arr1;
   }

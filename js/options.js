@@ -130,6 +130,14 @@ $(function () {
     });
   };
 
+  getMinutes = function (timeStr) {
+    var startTime = new Date(timeStr); 
+    var endTime = new Date();
+    var difference = endTime.getTime() - startTime.getTime(); // This will give difference in milliseconds
+    var resultInMinutes = Math.round(difference / 60000);
+    return resultInMinutes;
+  }
+
   loadThemes_packages = function () {
     $('#theme_packages_list').show();
     $('#theme_packages_list').empty();
@@ -235,6 +243,7 @@ $(function () {
 	var circleElem = '<div class="icons_style circle"><p>77</p></div>';
         var checkElem = "<img id='check_" + key + "' data-checked='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_CHECKED_ICON + "' class='icons_style' type='image'/>";
         var greenFlag = "<img id='flag_green_" + key + "' data-checked='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_GREEN_FLAG_ICON + "' class='icons_style' style='float:none' type='image'/>";
+        var blueRefreshFlag = "<img id='flag_blue_" + key + "' data-checked='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_BLUE_FLAG_ICON + "' class='icons_style' style='float:none' type='image'/>";
 	
         var checkGrayElem = "<img id='check_gray_" + key + "' data-checked='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_NOT_CHECKED_ICON + "' class='icons_style' type='image'/>";
 
@@ -242,6 +251,9 @@ $(function () {
 	var toAppend = "<li id='li_" + key + "' style='cursor:zoom-in' class='list-group-item'>" + resultObject.word;
 	if (resultObject.green_flag == 1) {
 	  toAppend += greenFlag 
+	}
+	if (getMinutes(resultObject.last_refresh) >= 1) {
+	  toAppend += blueRefreshFlag;
 	}
 	toAppend += "<img id='" + key + "' data-id='" + key + "' src='" + OPTIONS_THEME_DELETE_ICON + "' class='icons_style' type='image'/>" + checkElem + checkGrayElem;
 	toAppend += plusElem + minusElem 
