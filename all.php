@@ -24,12 +24,12 @@
         <div class="col-xs-12">
           <!--<label>Wordy Dictionary ~ V3.0</label>-->
           <!--<img class="main_icon" src="img/theme_icon.png" type="image"/><label>Choose Theme</label>-->
-          <img id="switch_gray" style="display:none" class="icons_style main_icon" src="img/switch.png" type="image"/>
-          <img id="back" style="height:200px; float:left; display:none" class="" src="img/back.png" type="image"/>
-          <img id="switch" class="icons_style main_icon" src="img/switch_gray.png" type="image"/>
+          <!--<img id="switch_gray" style="display:none" class="icons_style main_icon" src="img/switch.png" type="image"/>-->
+          <img id="back" style="cursor: pointer; height:200px; float:left; display:none" class="" src="img/back.png" type="image"/>
+          <!--<img id="switch" class="icons_style main_icon" src="img/switch_gray.png" type="image"/>-->
           <!--<select id="theme_select_multiple" class="select_style col-xs-12"></select>-->
 	  <ul id="theme_packages_list" class="list-group col-xs-12">
-	    <li class="list-group-item">package 1<input src="img/pinIn.png" style="float:right" type="image"/></li>
+	    <!--<li class="list-group-item">package 1<input src="img/pinIn.png" style="float:right" type="image"/></li>-->
 	  </ul>
           <span id="add_theme_result"></span>
 	  <div class="col-xs-4"></div>

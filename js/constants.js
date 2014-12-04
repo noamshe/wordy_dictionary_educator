@@ -38,9 +38,32 @@ var OPTIONS_THEME_MINUS_ICON = "img/minus.png";
 var OPTIONS_THEME_GREEN_FLAG_ICON = "img/learning-flag-green.png";
 var OPTIONS_THEME_BLUE_FLAG_ICON = "img/refresh_blue_flag.png";
 var ICON_GRADUATED = "img/graduation.png";
+var JUDO_RANK_WHITE_ICON = "img/blue_belt.png";
+var REFRESH_IN_MINUTES = 5;
 
 // POPUP
 var LANGUAGE_SEPERATOR_COLOR = "#FF9966";
 
 //var LANGUAGE_DETECT_URL = "https://translate.google.com/translate_a/single?client=t&sl=auto&tl=iw&hl=en&dt=bd&dt=ex&dt=ld&dt=md&dt=qc&dt=rw&dt=rm&dt=ss&dt=t&ie=UTF-8&oe=UTF-8&oc=1&prev=conf&psl=en&ptl=iw&otf=1&it=sel.3016&ssel=3&tsel=0&q=";
 var LANGUAGE_DETECT_URL = "https://translate.google.com/translate_a/single?client=t&sl=auto&q=";
+
+
+var DAY = "1440";
+var LEVELS = {
+  "1": {
+    "icon": JUDO_RANK_WHITE_ICON,
+    "time_for_next_refresh": DAY
+  },
+  "2": {
+    "icon": JUDO_RANK_WHITE_ICON,
+    "time_for_next_refresh": DAY
+  },
+  "3": {
+    "icon": JUDO_RANK_WHITE_ICON,
+    "time_for_next_refresh": DAY
+  }
+}
+
+
+
+

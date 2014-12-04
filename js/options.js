@@ -130,11 +130,16 @@ $(function () {
     });
   };
 
-  getMinutes = function (timeStr) {
-    var startTime = new Date(timeStr); 
-    var endTime = new Date();
+  getMinutes = function (currentTimeStr, timeStr) {
+console.log(timeStr);
+    var startTime = new Date(timeStr);
+console.log(startTime);
+    var endTime = new Date(currentTimeStr);
+console.log(endTime);
     var difference = endTime.getTime() - startTime.getTime(); // This will give difference in milliseconds
+console.log(difference);
     var resultInMinutes = Math.round(difference / 60000);
+console.log(resultInMinutes);
     return resultInMinutes;
   }
 
@@ -246,13 +251,14 @@ $(function () {
         var blueRefreshFlag = "<img id='flag_blue_" + key + "' data-checked='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_BLUE_FLAG_ICON + "' class='icons_style' style='float:none' type='image'/>";
 	
         var checkGrayElem = "<img id='check_gray_" + key + "' data-checked='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_NOT_CHECKED_ICON + "' class='icons_style' type='image'/>";
-
+        var judoRankElem = "<img id='judo_rank_" + key + "' data-id='" + key + "' src='" + JUDO_RANK_WHITE_ICON + "' style='margin-left:3px; float:none' class='icons_style' type='image'/>";
 
 	var toAppend = "<li id='li_" + key + "' style='cursor:zoom-in' class='list-group-item'>" + resultObject.word;
 	if (resultObject.green_flag == 1) {
 	  toAppend += greenFlag 
 	}
-	if (getMinutes(resultObject.last_refresh) >= 1) {
+	toAppend += judoRankElem;
+	if (resultObject.green_flag == 0 && getMinutes(resultObject.current_datetime.date, resultObject.last_refresh) >= REFRESH_IN_MINUTES) {
 	  toAppend += blueRefreshFlag;
 	}
 	toAppend += "<img id='" + key + "' data-id='" + key + "' src='" + OPTIONS_THEME_DELETE_ICON + "' class='icons_style' type='image'/>" + checkElem + checkGrayElem;
@@ -306,6 +312,7 @@ $(function () {
 	  });
 	  var id = $("#" + event.target.id).data("id");
 	  var good = parseInt($("#progress_" + id).data("good")) + 1;
+	  $("#flag_blue_" + id).hide();
 	  $("#progress_" + id).data("good", good);
 	  updateProgressBar(id);
 	  setGood(id, good);
@@ -317,6 +324,7 @@ $(function () {
 	  });
 	  var id = $("#" + event.target.id).data("id");
 	  var bad = parseInt($("#progress_" + id).data("bad")) + 1;
+	  $("#flag_blue_" + id).hide();
 	  $("#progress_" + id).data("bad", bad);
 	  updateProgressBar(id);
 	  setBad(id, bad);
@@ -360,7 +368,7 @@ $(function () {
     });
   });
 
-  //loadThemes();
+  loadThemes();
   loadThemes_packages();
 });
 
