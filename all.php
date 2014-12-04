@@ -15,7 +15,10 @@
     <!-- Optional: Incorporate the Bootstrap JavaScript plugins -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <!--<script src="js/bootstrap/bootstrap.min.js"></script>-->
+    <link href="letterfx/jquery-letterfx.css" rel="stylesheet" type="text/css" />
     <script src="js/bootbox.min.js"></script>
+    <script src="letterfx/tuxsudo.min.js"></script>
+    <script src="letterfx/jquery-letterfx.js"></script>
     <link rel="stylesheet" href="css/options.css">
   </head>
   <body style="font-size:50px;">

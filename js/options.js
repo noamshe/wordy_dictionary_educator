@@ -26,22 +26,22 @@ $(function () {
     });
   }
 
-  setGood = function (id, value) {
+  setGood = function (id, value, level) {
     $.ajax({
       type: "POST",
       url: DB_SERVER + SET_GOOD,
-      data: "id=" + id + "&good=" + value,
+      data: "id=" + id + "&good=" + value + "&level=" + level,
       dataType: "text",
       success: function (result) {
       }
     });
   }
 
-  setBad = function (id, value) {
+  setBad = function (id, value, level) {
     $.ajax({
       type: "POST",
       url: DB_SERVER + SET_BAD,
-      data: "id=" + id + "&bad=" + value,
+      data: "id=" + id + "&bad=" + value + "&level=" + level,
       dataType: "text",
       success: function (result) {
       }
@@ -251,14 +251,17 @@ console.log(resultInMinutes);
         var blueRefreshFlag = "<img id='flag_blue_" + key + "' data-checked='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_BLUE_FLAG_ICON + "' class='icons_style' style='float:none' type='image'/>";
 	
         var checkGrayElem = "<img id='check_gray_" + key + "' data-checked='" + resultObject.checked + "' data-id='" + key + "' src='" + OPTIONS_THEME_NOT_CHECKED_ICON + "' class='icons_style' type='image'/>";
-        var judoRankElem = "<img id='judo_rank_" + key + "' data-id='" + key + "' src='" + JUDO_RANK_WHITE_ICON + "' style='margin-left:3px; float:none' class='icons_style' type='image'/>";
+        var judoRankElem = "<img id='judo_rank_" + key + "' data-id='" + key + "' src='" + LEVELS[resultObject.level].icon + "' style='margin-left:3px; float:none' class='icons_style' type='image'/>";
+        var nextRank = "<img id='next_rank_" + key + "' data-id='" + key + "' src='" + RANK_YELLOW_BELT_ICON + "' style='display:block; margin-left:3px; float:none' class='icons_style' type='image'/>";
+        var levelPass = "<p id='level_" + key + "' data-id='" + key + "' class='' style='display:none; font-weight: bold; color: darkred; background-color:" + CONGRATZ_COLOR + "; text-align: center'>" + CONGRATZ + "</p>";
+        var levelFailed = "<p id='level_failed_" + key + "' data-id='" + key + "' class='' style='display:none; font-weight: bold; color: darkred; background-color:" + NO_CONGRATZ_COLOR + "; text-align: center'>" + NO_CONGRATZ + "</p>";
 
-	var toAppend = "<li id='li_" + key + "' style='cursor:zoom-in' class='list-group-item'>" + resultObject.word;
+	var toAppend = "<li id='li_" + key + "' data-level='" + resultObject.level + "' style='cursor:zoom-in' class='list-group-item'>" + resultObject.word;
 	if (resultObject.green_flag == 1) {
 	  toAppend += greenFlag 
 	}
 	toAppend += judoRankElem;
-	if (resultObject.green_flag == 0 && getMinutes(resultObject.current_datetime.date, resultObject.last_refresh) >= REFRESH_IN_MINUTES) {
+	if (resultObject.green_flag == 0) { // && getMinutes(resultObject.current_datetime.date, resultObject.last_refresh) >= REFRESH_IN_MINUTES) {
 	  toAppend += blueRefreshFlag;
 	}
 	toAppend += "<img id='" + key + "' data-id='" + key + "' src='" + OPTIONS_THEME_DELETE_ICON + "' class='icons_style' type='image'/>" + checkElem + checkGrayElem;
@@ -274,8 +277,14 @@ console.log(resultInMinutes);
 	//var textAlign = "right";
         theme_list.append("<li style='background-color: #FFCD28; text-align:" + textAlign + "; display: none' class='list-group-item'>" + resultObject.definition + "</li>");
 	theme_list.append(bar);
+	theme_list.append(levelPass);
+	theme_list.append(levelFailed);
 	updateProgressBar(key);
 	initCheckStatus(resultObject.checked, key);
+        $('#level_' + key).bind('click', function (event) {
+	  $("#" + event.target.id).letterfx({"fx":"wave","letter_end":"rewind","fx_duration":"300ms"});
+	  //$("#" + event.target.id).letterfx({"fx":"fly-right fly-bottom spin"});
+	});
         $('#li_' + key).bind('click', function (event) {
 	  console.log("event: " + event.target.id);
 	  if (event.target.id.indexOf("li_") != -1) {
@@ -312,10 +321,25 @@ console.log(resultInMinutes);
 	  });
 	  var id = $("#" + event.target.id).data("id");
 	  var good = parseInt($("#progress_" + id).data("good")) + 1;
+	  var level = $("#li_" + id).data("level");
+    	  if ($("#flag_blue_" + id).is(":visible")) {
+	    level = level + 1;
+	    $("#li_" + id).data("level", level);
+	    if (LEVELS[level].announce == true) {
+	      $("#level_" + id).show(400, function() {
+	        $("#level_" + id).letterfx({"fx":"wave","letter_end":"rewind","fx_duration":"300ms", "onElementComplete": function($element, LetterFXObj) {
+	          $("#judo_rank_" + id).toggle("explode");
+	          $("#judo_rank_" + id).attr("src", LEVELS[level].icon);
+	          $("#judo_rank_" + id).toggle("explode");
+	          //$("#level_" + id).hide(400);
+	        }});
+	      });
+	    }
+	  }
 	  $("#flag_blue_" + id).hide();
 	  $("#progress_" + id).data("good", good);
 	  updateProgressBar(id);
-	  setGood(id, good);
+	  setGood(id, good, level);
         });
         $('#minus_' + key).bind('click', function (event) {
 	  //$("#" + event.target.id).fadeOut("slow", function() {
@@ -324,10 +348,25 @@ console.log(resultInMinutes);
 	  });
 	  var id = $("#" + event.target.id).data("id");
 	  var bad = parseInt($("#progress_" + id).data("bad")) + 1;
+	  var level = $("#li_" + id).data("level");
+	  if ($("#flag_blue_" + id).is(":visible")) {
+	    level = (level > 0) ? level - 1 : level;
+	    $("#li_" + id).data("level", level);
+	    if (LEVELS[level].announce_downgrade == true) {
+	      $("#level_failed_" + id).show(400, function() {
+	        $("#level_failed_" + id).letterfx({"fx":"wave","letter_end":"rewind","fx_duration":"300ms", "onElementComplete": function($element, LetterFXObj) {
+	          $("#judo_rank_" + id).toggle("explode");
+	          $("#judo_rank_" + id).attr("src", LEVELS[level].icon);
+	          $("#judo_rank_" + id).toggle("explode");
+	          //$("#level_" + id).hide(400);
+	        }});
+	      });
+	    }
+	  }
 	  $("#flag_blue_" + id).hide();
 	  $("#progress_" + id).data("bad", bad);
 	  updateProgressBar(id);
-	  setBad(id, bad);
+	  setBad(id, bad, level);
         });
         $('#flag_green_' + key).bind('click', function (event) {
 	  var id = $("#" + event.target.id).data("id");

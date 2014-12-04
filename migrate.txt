@@ -20,4 +20,5 @@ alter table archive add column bad int(11) default 0 after checked;
 alter table archive add column last_refresh datetime default NULL after bad;
 alter table archive add column last_refresh_success tinyint(1) default 1 after last_refresh;
 alter table archive add column active tinyint(1) default 0 after last_refresh;
+alter table archive add column level int(11) default 0 after last_refresh;
 

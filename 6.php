@@ -19,6 +19,7 @@
     $arr1['bad'] = $row['bad'];
     $arr1['last_refresh'] = $row['last_refresh'];
     $arr1['active'] = $row['active'];
+    $arr1['level'] = $row['level'];
     $arr1['current_datetime'] = $now;
 
     $arr[$row['id']] = $arr1;

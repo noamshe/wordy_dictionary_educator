@@ -38,7 +38,10 @@ var OPTIONS_THEME_MINUS_ICON = "img/minus.png";
 var OPTIONS_THEME_GREEN_FLAG_ICON = "img/learning-flag-green.png";
 var OPTIONS_THEME_BLUE_FLAG_ICON = "img/refresh_blue_flag.png";
 var ICON_GRADUATED = "img/graduation.png";
-var JUDO_RANK_WHITE_ICON = "img/blue_belt.png";
+var RANK_WHITE_BELT_ICON = "img/white_belt.png";
+var RANK_YELLOW_BELT_ICON = "img/yellow_belt.png";
+var RANK_ORANGE_BELT_ICON = "img/orange_belt.png";
+var RANK_GREEN_BELT_ICON = "img/green_belt.png";
 var REFRESH_IN_MINUTES = 5;
 
 // POPUP
@@ -49,20 +52,78 @@ var LANGUAGE_DETECT_URL = "https://translate.google.com/translate_a/single?clien
 
 
 var DAY = "1440";
-var LEVELS = {
-  "1": {
-    "icon": JUDO_RANK_WHITE_ICON,
+var CONGRATZ = "CONGRATZ, PASS TO NEXT LEVEL";
+var CONGRATZ_COLOR = "#F0E68C";
+var NO_CONGRATZ_COLOR = "#d9534f";
+var NO_CONGRATZ = "Level Failed";
+var LEVELS = [
+  {
+    "announce": false,
+    "announce_downgrade": false,
+    "icon": RANK_WHITE_BELT_ICON,
     "time_for_next_refresh": DAY
   },
-  "2": {
-    "icon": JUDO_RANK_WHITE_ICON,
+  {
+    "announce": false,
+    "announce_downgrade": false,
+    "icon": RANK_WHITE_BELT_ICON,
     "time_for_next_refresh": DAY
   },
-  "3": {
-    "icon": JUDO_RANK_WHITE_ICON,
+  {
+    "announce": false,
+    "announce_downgrade": true,
+    "icon": RANK_WHITE_BELT_ICON,
+    "time_for_next_refresh": DAY
+  },
+  {
+    "announce": true,
+    "announce_downgrade": false,
+    "icon": RANK_YELLOW_BELT_ICON,
+    "time_for_next_refresh": DAY
+  },
+  {
+    "announce": false,
+    "announce_downgrade": false,
+    "icon": RANK_YELLOW_BELT_ICON,
+    "time_for_next_refresh": DAY
+  },
+  {
+    "announce": false,
+    "announce_downgrade": true,
+    "icon": RANK_YELLOW_BELT_ICON,
+    "time_for_next_refresh": DAY
+  },
+  {
+    "announce": true,
+    "announce_downgrade": false,
+    "icon": RANK_ORANGE_BELT_ICON,
+    "time_for_next_refresh": DAY
+  },
+  {
+    "announce": false,
+    "announce_downgrade": false,
+    "icon": RANK_ORANGE_BELT_ICON,
+    "time_for_next_refresh": DAY
+  },
+  {
+    "announce": false,
+    "announce_downgrade": true,
+    "icon": RANK_ORANGE_BELT_ICON,
+    "time_for_next_refresh": DAY
+  },
+  {
+    "announce": true,
+    "announce_downgrade": false,
+    "icon": RANK_GREEN_BELT_ICON,
+    "time_for_next_refresh": DAY
+  },
+  {
+    "announce": false,
+    "announce_downgrade": false,
+    "icon": RANK_GREEN_BELT_ICON,
     "time_for_next_refresh": DAY
   }
-}
+]
 
 
 
