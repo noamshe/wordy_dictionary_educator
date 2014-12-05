@@ -59,6 +59,13 @@ var LANGUAGE_DETECT_URL = "https://translate.google.com/translate_a/single?clien
 
 
 var DAY = "1440";
+var TWO_DAYS = "2880";
+var THREE_DAYS = "4320";
+var FOUR_DAYS = "5760";
+var FIVE_DAYS = "7200";
+var WEEK = "10080";
+var TWO_WEEKS = "20160";
+var THREE_WEEKS = "30240";
 var CONGRATZ = "CONGRATZ, PASS TO NEXT LEVEL";
 var CONGRATZ_COLOR = "#F0E68C";
 var NO_CONGRATZ_COLOR = "#d9534f";
@@ -100,7 +107,7 @@ var LEVELS = [
     "announce": false,
     "announce_downgrade": false,
     "icon": RANK_YELLOW_BELT_ICON,
-    "time_for_next_refresh": DAY,
+    "time_for_next_refresh": TWO_DAYS,
     "level": 2,
     "top_level": false
   },
@@ -108,7 +115,7 @@ var LEVELS = [
     "announce": false,
     "announce_downgrade": true,
     "icon": RANK_YELLOW_BELT_ICON,
-    "time_for_next_refresh": DAY,
+    "time_for_next_refresh": TWO_DAYS,
     "level": 2,
     "top_level": false
   },
@@ -116,15 +123,7 @@ var LEVELS = [
     "announce": true,
     "announce_downgrade": false,
     "icon": RANK_ORANGE_BELT_ICON,
-    "time_for_next_refresh": DAY,
-    "level": 3,
-    "top_level": false
-  },
-  {
-    "announce": false,
-    "announce_downgrade": false,
-    "icon": RANK_ORANGE_BELT_ICON,
-    "time_for_next_refresh": DAY,
+    "time_for_next_refresh": THREE_DAYS,
     "level": 3,
     "top_level": false
   },
@@ -132,7 +131,7 @@ var LEVELS = [
     "announce": false,
     "announce_downgrade": true,
     "icon": RANK_ORANGE_BELT_ICON,
-    "time_for_next_refresh": DAY,
+    "time_for_next_refresh": THREE_DAYS,
     "level": 3,
     "top_level": false
   },
@@ -140,7 +139,7 @@ var LEVELS = [
     "announce": true,
     "announce_downgrade": false,
     "icon": RANK_GREEN_BELT_ICON,
-    "time_for_next_refresh": DAY,
+    "time_for_next_refresh": FOUR_DAYS,
     "level": 4,
     "top_level": false
   },
@@ -148,7 +147,7 @@ var LEVELS = [
     "announce": false,
     "announce_downgrade": true,
     "icon": RANK_GREEN_BELT_ICON,
-    "time_for_next_refresh": DAY,
+    "time_for_next_refresh": FOUR_DAYS,
     "level": 4,
     "top_level": false
   },
@@ -156,15 +155,23 @@ var LEVELS = [
     "announce": true,
     "announce_downgrade": true,
     "icon": RANK_BLUE_BELT_ICON,
-    "time_for_next_refresh": DAY,
+    "time_for_next_refresh": FIVE_DAYS,
     "level": 6,
+    "top_level": false
+  },
+  {
+    "announce": true,
+    "announce_downgrade": false,
+    "icon": RANK_RED_BELT_ICON,
+    "time_for_next_refresh": WEEK,
+    "level": 7,
     "top_level": false
   },
   {
     "announce": true,
     "announce_downgrade": true,
     "icon": RANK_RED_BELT_ICON,
-    "time_for_next_refresh": DAY,
+    "time_for_next_refresh": WEEK,
     "level": 7,
     "top_level": false
   },
@@ -172,7 +179,7 @@ var LEVELS = [
     "announce": true,
     "announce_downgrade": true,
     "icon": RANK_PURPLE_BELT_ICON,
-    "time_for_next_refresh": DAY,
+    "time_for_next_refresh": TWO_WEEKS,
     "level": 8,
     "top_level": false
   },
@@ -180,7 +187,7 @@ var LEVELS = [
     "announce": true,
     "announce_downgrade": true,
     "icon": RANK_BROWN_BELT_ICON,
-    "time_for_next_refresh": DAY,
+    "time_for_next_refresh": THREE_WEEKS,
     "level": 9,
     "top_level": false
   },

@@ -262,7 +262,7 @@ console.log(resultInMinutes);
 	}
 	toAppend += judoRankElem;
 
-	if (LEVELS[resultObject.level].top_level == false && resultObject.green_flag == 0) { // && getMinutes(resultObject.current_datetime.date, resultObject.last_refresh) >= REFRESH_IN_MINUTES) {
+	if (resultObject.level == 0 || LEVELS[resultObject.level].top_level == false && resultObject.green_flag == 0 && getMinutes(resultObject.current_datetime.date, resultObject.last_refresh) >= LEVELS[resultObject.level].time_for_next_refresh) {
 	  toAppend += blueRefreshFlag;
 	}
 	toAppend += "<img id='" + key + "' data-id='" + key + "' src='" + OPTIONS_THEME_DELETE_ICON + "' class='icons_style' type='image'/>" + checkElem + checkGrayElem;
