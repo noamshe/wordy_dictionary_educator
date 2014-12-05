@@ -38,10 +38,17 @@ var OPTIONS_THEME_MINUS_ICON = "img/minus.png";
 var OPTIONS_THEME_GREEN_FLAG_ICON = "img/learning-flag-green.png";
 var OPTIONS_THEME_BLUE_FLAG_ICON = "img/refresh_blue_flag.png";
 var ICON_GRADUATED = "img/graduation.png";
-var RANK_WHITE_BELT_ICON = "img/white_belt.png";
-var RANK_YELLOW_BELT_ICON = "img/yellow_belt.png";
-var RANK_ORANGE_BELT_ICON = "img/orange_belt.png";
-var RANK_GREEN_BELT_ICON = "img/green_belt.png";
+
+var RANK_WHITE_BELT_ICON = "img/belts/white_belt.png";
+var RANK_YELLOW_BELT_ICON = "img/belts/yellow_belt.png";
+var RANK_ORANGE_BELT_ICON = "img/belts/orange_belt.png";
+var RANK_GREEN_BELT_ICON = "img/belts/green_belt.png";
+var RANK_BLUE_BELT_ICON = "img/belts/blue_belt.png";
+var RANK_RED_BELT_ICON = "img/belts/red_belt.png";
+var RANK_PURPLE_BELT_ICON = "img/belts/purple_belt.png";
+var RANK_BROWN_BELT_ICON = "img/belts/brown_belt.png";
+var RANK_BLACK_BELT_ICON = "img/belts/black_belt.png";
+
 var REFRESH_IN_MINUTES = 5;
 
 // POPUP
@@ -61,67 +68,129 @@ var LEVELS = [
     "announce": false,
     "announce_downgrade": false,
     "icon": RANK_WHITE_BELT_ICON,
-    "time_for_next_refresh": DAY
+    "time_for_next_refresh": DAY,
+    "level": 1,
+    "top_level": false
   },
   {
     "announce": false,
     "announce_downgrade": false,
     "icon": RANK_WHITE_BELT_ICON,
-    "time_for_next_refresh": DAY
+    "time_for_next_refresh": DAY,
+    "level": 1,
+    "top_level": false
   },
   {
     "announce": false,
     "announce_downgrade": true,
     "icon": RANK_WHITE_BELT_ICON,
-    "time_for_next_refresh": DAY
+    "time_for_next_refresh": DAY,
+    "level": 1,
+    "top_level": false
   },
   {
     "announce": true,
     "announce_downgrade": false,
     "icon": RANK_YELLOW_BELT_ICON,
-    "time_for_next_refresh": DAY
+    "time_for_next_refresh": DAY,
+    "level": 2,
+    "top_level": false
   },
   {
     "announce": false,
     "announce_downgrade": false,
     "icon": RANK_YELLOW_BELT_ICON,
-    "time_for_next_refresh": DAY
+    "time_for_next_refresh": DAY,
+    "level": 2,
+    "top_level": false
   },
   {
     "announce": false,
     "announce_downgrade": true,
     "icon": RANK_YELLOW_BELT_ICON,
-    "time_for_next_refresh": DAY
+    "time_for_next_refresh": DAY,
+    "level": 2,
+    "top_level": false
   },
   {
     "announce": true,
     "announce_downgrade": false,
     "icon": RANK_ORANGE_BELT_ICON,
-    "time_for_next_refresh": DAY
+    "time_for_next_refresh": DAY,
+    "level": 3,
+    "top_level": false
   },
   {
     "announce": false,
     "announce_downgrade": false,
     "icon": RANK_ORANGE_BELT_ICON,
-    "time_for_next_refresh": DAY
+    "time_for_next_refresh": DAY,
+    "level": 3,
+    "top_level": false
   },
   {
     "announce": false,
     "announce_downgrade": true,
     "icon": RANK_ORANGE_BELT_ICON,
-    "time_for_next_refresh": DAY
+    "time_for_next_refresh": DAY,
+    "level": 3,
+    "top_level": false
   },
   {
     "announce": true,
     "announce_downgrade": false,
     "icon": RANK_GREEN_BELT_ICON,
-    "time_for_next_refresh": DAY
+    "time_for_next_refresh": DAY,
+    "level": 4,
+    "top_level": false
   },
   {
     "announce": false,
-    "announce_downgrade": false,
+    "announce_downgrade": true,
     "icon": RANK_GREEN_BELT_ICON,
-    "time_for_next_refresh": DAY
+    "time_for_next_refresh": DAY,
+    "level": 4,
+    "top_level": false
+  },
+  {
+    "announce": true,
+    "announce_downgrade": true,
+    "icon": RANK_BLUE_BELT_ICON,
+    "time_for_next_refresh": DAY,
+    "level": 6,
+    "top_level": false
+  },
+  {
+    "announce": true,
+    "announce_downgrade": true,
+    "icon": RANK_RED_BELT_ICON,
+    "time_for_next_refresh": DAY,
+    "level": 7,
+    "top_level": false
+  },
+  {
+    "announce": true,
+    "announce_downgrade": true,
+    "icon": RANK_PURPLE_BELT_ICON,
+    "time_for_next_refresh": DAY,
+    "level": 8,
+    "top_level": false
+  },
+  {
+    "announce": true,
+    "announce_downgrade": true,
+    "icon": RANK_BROWN_BELT_ICON,
+    "time_for_next_refresh": DAY,
+    "level": 9,
+    "top_level": false
+  },
+  {
+    "announce": true,
+    "announce_downgrade": true,
+    "icon": RANK_BLACK_BELT_ICON,
+    "time_for_next_refresh": DAY,
+    "level": 10,
+    "top_level": true
   }
 ]
 

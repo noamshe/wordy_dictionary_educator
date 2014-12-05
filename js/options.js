@@ -261,7 +261,8 @@ console.log(resultInMinutes);
 	  toAppend += greenFlag 
 	}
 	toAppend += judoRankElem;
-	if (resultObject.green_flag == 0) { // && getMinutes(resultObject.current_datetime.date, resultObject.last_refresh) >= REFRESH_IN_MINUTES) {
+
+	if (LEVELS[resultObject.level].top_level == false && resultObject.green_flag == 0) { // && getMinutes(resultObject.current_datetime.date, resultObject.last_refresh) >= REFRESH_IN_MINUTES) {
 	  toAppend += blueRefreshFlag;
 	}
 	toAppend += "<img id='" + key + "' data-id='" + key + "' src='" + OPTIONS_THEME_DELETE_ICON + "' class='icons_style' type='image'/>" + checkElem + checkGrayElem;
@@ -322,7 +323,7 @@ console.log(resultInMinutes);
 	  var id = $("#" + event.target.id).data("id");
 	  var good = parseInt($("#progress_" + id).data("good")) + 1;
 	  var level = $("#li_" + id).data("level");
-    	  if ($("#flag_blue_" + id).is(":visible")) {
+    	  if (LEVELS[level].top_level == false && $("#flag_blue_" + id).is(":visible")) {
 	    level = level + 1;
 	    $("#li_" + id).data("level", level);
 	    if (LEVELS[level].announce == true) {
@@ -349,7 +350,7 @@ console.log(resultInMinutes);
 	  var id = $("#" + event.target.id).data("id");
 	  var bad = parseInt($("#progress_" + id).data("bad")) + 1;
 	  var level = $("#li_" + id).data("level");
-	  if ($("#flag_blue_" + id).is(":visible")) {
+	  if (LEVELS[level].top_level == false && $("#flag_blue_" + id).is(":visible")) {
 	    level = (level > 0) ? level - 1 : level;
 	    $("#li_" + id).data("level", level);
 	    if (LEVELS[level].announce_downgrade == true) {
