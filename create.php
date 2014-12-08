@@ -15,19 +15,17 @@
     <!--<script src="js/bootstrap/bootstrap.min.js"></script>-->
     <script src="js/bootbox.min.js"></script>
   </head>
-  <body>
+  <body style="font-size:50px;">
     <div class="container-fluid">
       <div class="row">
         <div class="col-xs-12">
           <!--<form>-->
             <br/>
+            <label>Theme:</label><select id="theme_select_multiple" style="height: 50px; font-size:35px;" class="humongous form-control"></select>
+            <label>Word:</label><input id='word_input' type='text' style="height: 50px; font-size:35px;" class="form-control" autofocus="autofocus"/>
+            <label>Definition:</label><input id='definition_input' style="height: 50px; font-size:35px;" type='text' class="form-control"/>
             <br/>
-            <br/>
-            <label>Theme:</label><select id="theme_select_multiple" class="form-control"></select>
-            <label>Word:</label><input id='word_input' type='text' class="form-control" autofocus="autofocus"/>
-            <label>Definition:</label><input id='definition_input' type='text' class="form-control"/>
-            <br/>
-            <button id="add_word_button" type="submit" value="Submit" class="btn btn-primary">Add</button>
+            <button id="add_word_button" type="submit" value="Submit" style="font-size:35px;" class="btn btn-primary btn-lg">Add</button>
 	  <!--</form>-->
           <br/>
         </div>
