@@ -10,3 +10,6 @@ even if there is one word inside a theme that need to be refreshed, show the ico
 - add on fire icon for words that has good sucess/failure ratio
 - add total row.
 - add 4/12 in the theme row before pressing it.
+
+
+-- run with default configuration of lighttpd
