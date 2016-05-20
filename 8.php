@@ -1,5 +1,6 @@
 <?php
   $con=mysqli_connect("localhost","root","123123","wordydb");
+  $con->set_charset("utf8");
 
   // Check connection
   if (mysqli_connect_errno()) {
