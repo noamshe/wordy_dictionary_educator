@@ -1,0 +1,10 @@
+[mysqld]
+innodb_file_format = Barracuda
+innodb_file_per_table = on
+innodb_large_prefix = on
+max_connections = 3000
+interactive_timeout = 300
+lock_wait_timeout = 600
+
+
+

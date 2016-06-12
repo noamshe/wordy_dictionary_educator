@@ -1,0 +1,52 @@
+INSERT INTO `advertisers` (`name`,`created_at`,`updated_at`) VALUES ("Advertiser 1","2014-12-14 12:31:29","2014-12-14 12:31:29");
+INSERT INTO `advertisers` (`name`,`created_at`,`updated_at`,`source`) VALUES ("Advertiser 2","2014-12-14 12:31:29","2014-12-14 12:31:29",'PERFORMANCE');
+INSERT INTO `advertisers` (`name`,`created_at`,`updated_at`) VALUES ("Advertiser 3","2014-12-14 12:31:29","2014-12-14 12:31:29");
+INSERT INTO `creatives` (`size_id`,`name`,`file`,`status`,`type`,`type_text`,`created_at`,`updated_at`,`advertiser_id`) VALUES (1,"en3","1.png",true,"IMAGE",NULL,"2014-12-14 12:32:59","2014-12-14 12:32:59",1);
+INSERT INTO `creatives` (`size_id`,`name`,`file`,`status`,`type`,`type_text`,`created_at`,`updated_at`,`advertiser_id`) VALUES (1,"myCreative","2.png",true,"IMAGE",NULL,"2014-12-14 12:32:59","2014-12-14 12:32:59",3);
+INSERT INTO `creatives` (`size_id`,`name`,`file`,`status`,`type`,`type_text`,`created_at`,`updated_at`,`advertiser_id`,`source`) VALUES (1,"en3","2.png",true,"IMAGE",NULL,"2014-12-14 12:32:59","2014-12-14 12:32:59",2,'PERFORMANCE');
+INSERT INTO `campaigns`(`id`,`advertiser_id`,`name`,`landing_url`,`advertiser_domain`,`cost`, `cost_type`, `revenue`, `revenue_type`, `margin`, `broker_fee`, `created_at`,`updated_at`,`status`,`cmv_cup_status`,`daily_imp`,`daily_imp_enabled`,`lifetime_imp`,`lifetime_imp_enabled`,`daily_budget`,`daily_budget_enabled`,`lifetime_budget`,`lifetime_budget_enabled`,`mobile_web`,`in_app`,`ssps`,`cpc_goal`,`cpa_goal`,`connection_wifi`,`connection_cellular`,`connection_unknown`) values (1,1,'Campaign RTB','http://yahoo.com/?d={CLICK_ID}','yahoo.com','1.0','CPM_NO_GOAL', '15.000', 'CPA', '0', '0', '2014-12-14 12:34:46','2015-01-29 11:58:57',1,0,0,0,0,0,10000,1,10000,1,1,1,'1,2','10.000','10.000',1,1,1);
+INSERT INTO `campaigns`(`id`,`advertiser_id`,`name`,`landing_url`,`advertiser_domain`,`cost`, `cost_type`, `revenue`, `revenue_type`, `margin`, `broker_fee`, `created_at`,`updated_at`,`status`,`cmv_cup_status`,`daily_imp`,`daily_imp_enabled`,`lifetime_imp`,`lifetime_imp_enabled`,`daily_budget`,`daily_budget_enabled`,`lifetime_budget`,`lifetime_budget_enabled`,`mobile_web`,`in_app`,`ssps`,`cpc_goal`,`cpa_goal`,`connection_wifi`,`connection_cellular`,`connection_unknown`) values (2,1,'Campaign Network','http://yahoo.com/?d={CLICK_ID}','yahoo.com','10.0','CPM_OPTIMIZED', '0.02', 'COST_PLUS', '0', '0', '2014-12-14 12:34:46','2015-01-29 11:58:57',1,0,0,0,0,0,10000,1,10000,1,1,1,'2','10.000','10.000',1,1,1);
+INSERT INTO `campaigns`(`id`,`advertiser_id`,`name`,`landing_url`,`advertiser_domain`,`cost`, `cost_type`, `revenue`, `revenue_type`, `margin`, `broker_fee`, `created_at`,`updated_at`,`status`,`cmv_cup_status`,`daily_imp`,`daily_imp_enabled`,`lifetime_imp`,`lifetime_imp_enabled`,`daily_budget`,`daily_budget_enabled`,`lifetime_budget`,`lifetime_budget_enabled`,`mobile_web`,`in_app`,`ssps`,`cpc_goal`,`cpa_goal`,`connection_wifi`,`connection_cellular`,`connection_unknown`, `source`) values (3,2,'Campaign Performance','http://yahoo.com/?d={CLICK_ID}','yahoo.com','10.000','CPA', '20.000', 'CPA', '0', '0', '2014-12-14 12:34:46','2015-01-29 11:58:57',1,0,0,0,0,0,10000,1,10000,1,1,1,'1,2','10.000','10.000',1,1,1, 'PERFORMANCE');
+INSERT INTO `campaigns`(`id`,`advertiser_id`,`name`,`landing_url`,`advertiser_domain`,`cost`, `cost_type`, `revenue`, `revenue_type`, `margin`, `broker_fee`, `created_at`,`updated_at`,`status`,`cmv_cup_status`,`daily_imp`,`daily_imp_enabled`,`lifetime_imp`,`lifetime_imp_enabled`,`daily_budget`,`daily_budget_enabled`,`lifetime_budget`,`lifetime_budget_enabled`,`mobile_web`,`in_app`,`ssps`,`cpc_goal`,`cpa_goal`,`connection_wifi`,`connection_cellular`,`connection_unknown`, `source`) values (4,3,'Campaign Performance 2','http://yahoo.com/?d={CLICK_ID}','yahoo.com','10.000','CPA', '20.000', 'CPA', '0', '0', '2014-12-14 12:34:46','2015-01-29 11:58:57',1,0,0,0,0,0,10000,1,10000,1,1,1,'1,2','10.000','10.000',1,1,1, 'PERFORMANCE');
+INSERT INTO `campaign_creatives` (`id`,`campaign_id`,`creative_id`,`created_at`,`updated_at`) VALUES (NULL,1,1,"2014-12-14 12:34:47","2014-12-14 12:34:47");
+INSERT INTO `campaign_creatives` (`id`,`campaign_id`,`creative_id`,`created_at`,`updated_at`) VALUES (NULL,2,1,"2014-12-14 12:34:47","2014-12-14 12:34:47");
+INSERT INTO `campaign_creatives` (`id`,`campaign_id`,`creative_id`,`created_at`,`updated_at`) VALUES (NULL,3,2,"2014-12-14 12:34:47","2014-12-14 12:34:47");
+INSERT INTO `campaign_creatives` (`id`,`campaign_id`,`creative_id`,`created_at`,`updated_at`) VALUES (NULL,4,3,"2014-12-14 12:34:47","2014-12-14 12:34:47");
+INSERT INTO matomy_apps VALUES (1, "App 1", NOW(), NOW());
+INSERT INTO apps VALUES (1, "App 1", NOW(), NOW(), 1, 1, 1);
+INSERT INTO sites VALUES (1, "Site 1", NOW(), NOW(), 1, 1, 1);
+INSERT INTO matomy_sites VALUES (1, "Site 1", NOW(), NOW());
+INSERT INTO ssp_publishers VALUES (1, 1, 1, NOW(), NOW());
+INSERT INTO matomy_publishers VALUES (1, "Publisher 1", NOW(), NOW());
+INSERT INTO matomy_apps VALUES (2, "App 1", NOW(), NOW());
+INSERT INTO apps VALUES (2, "App 1", NOW(), NOW(), 1, 1, 1);
+INSERT INTO sites VALUES (2, "Site 1", NOW(), NOW(), 1, 1, 1);
+INSERT INTO matomy_sites VALUES (2, "Site 1", NOW(), NOW());
+INSERT INTO ssp_publishers VALUES (2, 1, 1, NOW(), NOW());
+INSERT INTO matomy_publishers VALUES (2, "Publisher 1", NOW(), NOW());
+INSERT INTO matomy_apps VALUES (3, "App 1", NOW(), NOW());
+INSERT INTO apps VALUES (3, "App 1", NOW(), NOW(), 1, 1, 1);
+INSERT INTO sites VALUES (3, "Site 1", NOW(), NOW(), 1, 1, 1);
+INSERT INTO matomy_sites VALUES (3, "Site 1", NOW(), NOW());
+INSERT INTO ssp_publishers VALUES (3, 1, 1, NOW(), NOW());
+INSERT INTO matomy_publishers VALUES (3, "Publisher 1", NOW(), NOW());
+INSERT INTO `debug_tool` (`name`, `bid_request`, `ip`, `dpisha1`, `width`, `height`, `created_at`, `updated_at`) VALUES ('Bid That Pass', '{"at":2,"badv":["king.com"],"bcat":["IAB25-5","IAB7-28","IAB25-4","AND1-3","IAB25-1","IAB25-3","IAB25-2","IAB9-9","IAB14-4","IAB3-11","IAB19-3","IAB22-1","IAB22-2","IAB14-1","IAB14-2","IAB17-18","IAB14-3","IAB13-1","IAB26","IAB8-","IAB7-3","IAB25","IAB24","IAB23","IAB8-18","IAB19-30","IAB7-39","IAB7-41","IAB7-42","APL8-6","IAB11-4","IAB11"],"device":{"connectiontype":0,"devicetype":1,"geo":{"country":"ISR","type":3},"ip":"50.136.2.79","js":1,"make":"Apple","model":"Nexus4","os":"ios","osv":"8","ua":"Mozilla/5.0(ihone;CPUiPhoneOS6_1_3likeMacOSX)AppleWebKit/536.26(KHTML,likeGecko)Version/6.0Mobile/10B329Safari/8536.25","pidsha1":"1279676e0c5cdf642b94339521b29a81f15743c4"},"ext":{"carriername":"unknown-probablyWLAN","coppa":0,"operaminibrowser":0,"udi":{}},"id":"NqMNIBxySs","imp":[{"banner":{"battr":[1,3,5,8,9],"h":768,"mimes":["application/javascript","image/gif","image/jpeg","image/png","text/html","text/javascript","text/plain"],"pos":0,"w":1024},"dislaymanager":"SOMA","displaymanagerver":"adtag125","ext":{"strictbannersize":1},"id":"1","instl":0}],"site":{"cat":["IAB1"],"domain":"ron-gaming-us.com","id":"65776542","name":"RON???Gaming???US","publisher":{"id":"923865098"},"ref":"http://ad.mangareader.net/bttop2"},"cur":["USD","NIS"],"user":{"gender":"male"}}', 'bidder:8081', '', '320', '50', now(), now());
+INSERT INTO hard_targeting (campaign_id, op, targeting_type, targeting_value, created_at, updated_at) VALUES (1, "INCLUDE", "OSS", "ios_8", now(), now());
+INSERT INTO hard_targeting (campaign_id, op, targeting_type, targeting_value, created_at, updated_at) VALUES (1, "EXCLUDE", "BCATEGORY", "IAB1", now(), now());
+INSERT INTO hard_targeting (campaign_id, op, targeting_type, targeting_value, created_at, updated_at) VALUES (1, "EXCLUDE", "BADVERTISER", "yahoo.com", now(), now());
+INSERT INTO hard_targeting (campaign_id, op, targeting_type, targeting_value, created_at, updated_at) VALUES (2, "INCLUDE", "OSS", "ios_8", now(), now());
+INSERT INTO hard_targeting (campaign_id, op, targeting_type, targeting_value, created_at, updated_at) VALUES (2, "EXCLUDE", "BCATEGORY", "IAB1", now(), now());
+INSERT INTO hard_targeting (campaign_id, op, targeting_type, targeting_value, created_at, updated_at) VALUES (2, "EXCLUDE", "BADVERTISER", "yahoo.com", now(), now());
+INSERT INTO hard_targeting (campaign_id, op, targeting_type, targeting_value, created_at, updated_at) VALUES (3, "INCLUDE", "OSS", "ios_8", now(), now());
+INSERT INTO hard_targeting (campaign_id, op, targeting_type, targeting_value, created_at, updated_at) VALUES (3, "EXCLUDE", "BCATEGORY", "IAB1", now(), now());
+INSERT INTO hard_targeting (campaign_id, op, targeting_type, targeting_value, created_at, updated_at) VALUES (3, "EXCLUDE", "BADVERTISER", "yahoo.com", now(), now());
+INSERT INTO hard_targeting (campaign_id, op, targeting_type, targeting_value, created_at, updated_at) VALUES (4, 'INCLUDE', 'COUNTRY', 'ALA', now(), now());
+INSERT INTO rules (name, created_at, updated_at) VALUES ('Exclude Country Rule', NOW(), NOW());
+INSERT INTO rule_campaigns(rule_id, advertiser_id, campaign_id, status, deleted, type_exclude, type_inactive, dimension, time_range, frequency, conversions_operator, conversions_value,  cost_operator, cost_value, created_at, updated_at) VALUES (1, 3, 4, 1, 0, 1, 0,  'COUNTRY', 'LAST_3_DAYS', 'EVERY_1_HOUR', '<', 10, '>', 500, NOW(), NOW());
+INSERT INTO cities (name, country_alpha_3, created_at, updated_at) VALUES ('Tal Aviv, Israel', 'ISR', now(), now()), ('Florida, United States', 'USA', now(), now()), ('Texas, United States', 'USA', now(), now())
+, ('New York, United States', 'USA', now(), now()), ('California, United States', 'USA', now(), now()), ('Fort Lauderdale, Florida, United States', 'USA', now(), now())
+,('Key West, Florida, United States', 'USA', now(), now()), ('Miami, Florida, United States', 'USA', now(), now()), ('Cherokee, Texas, United States', 'USA', now(), now()), ('Buffalo, Texas, United States', 'USA', now(), now())
+, ('El Paso, Texas, United States', 'USA', now(), now()),('Boston, New York, United States', 'USA', now(), now()),('Duanesburg, New York, United States', 'USA', now(), now())
+,('Los Angeles, California, United States', 'USA', now(), now()),('Napa, California, United States', 'USA', now(), now()),('San Jose, California, United States', 'USA', now(), now())
+,('Scotter, United Kingdom', 'GBR', now(), now()),('London, United Kingdom', 'GBR', now(), now()),('York, United Kingdom', 'GBR', now(), now())
+,('Vita, Italy', 'ITA', now(), now()),('Cosoleto, Italy', 'ITA', now(), now()),('Rasa di Velate, Italy', 'ITA', now(), now());

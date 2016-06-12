@@ -1,10 +1,10 @@
 <?php
-  $con=mysqli_connect("localhost","root","123123","wordydb");
+  $con=mysqli_connect("mysql","root","123123","wordydb");
+  if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL noam: " . mysqli_connect_error();
+  }
   $con->set_charset("utf8");
   // Check connection
-  if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
 mysqli_query("SET NAMES 'utf8'");
   $result = mysqli_query($con, "SELECT * FROM themes");
 

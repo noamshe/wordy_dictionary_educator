@@ -1,4 +1,3 @@
- create table themes (id int auto_increment not null, name varchar(32), created_at datetime, primary key (id));
  CREATE TABLE `archive` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `word` varchar(64) DEFAULT NULL,
