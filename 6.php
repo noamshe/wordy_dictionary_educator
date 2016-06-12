@@ -1,6 +1,9 @@
 <?php
-  $con=mysqli_connect("localhost","root","123123","wordydb");
+  $con = mysqli_connect("mysql","root","123123","wordydb");
   $con->set_charset("utf8");
+  // this I added because of the warning on docker
+  date_default_timezone_set("UTC");
+
   // Check connection
   if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
