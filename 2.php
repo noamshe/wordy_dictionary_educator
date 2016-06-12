@@ -4,7 +4,7 @@
   #file_put_contents('stderr', print_r($_SERVER['HTTP_USER_AGENT'] . "\r\n", TRUE), FILE_APPEND);
   #file_put_contents('stderr', print_r($_SERVER['HTTP_REFERER'] . "\r\n", TRUE), FILE_APPEND);
 
-  $con=mysqli_connect("localhost","root","123123","wordydb");
+  $con=mysqli_connect("mysql","root","123123","wordydb");
   $con->set_charset("utf8");
   // Check connection
   if (mysqli_connect_errno()) {
