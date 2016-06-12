@@ -1,1 +1,3 @@
-docker run -d --name bla1 -p 80:80 --link mysql:mysql -v `pwd`/../:/var/www/html/ bla
+./mysql/run.sh
+docker run -d --name app -p 80:80 --link mysql:mysql -v `pwd`/../:/var/www/html/ bla
+

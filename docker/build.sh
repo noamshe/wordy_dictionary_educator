@@ -1,1 +1,1 @@
-docker build -t bla .
+docker build -t wordy/app .
