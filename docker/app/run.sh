@@ -1,1 +1,1 @@
-docker run -d --name app -p 80:80 --link mysql:mysql -v `pwd`/../:/var/www/html/ wordy/app
+docker run -d --name app -p 3000:80 --link mysql:mysql -v `pwd`/../:/var/www/html/ wordy/app
